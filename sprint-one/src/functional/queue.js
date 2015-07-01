@@ -9,14 +9,13 @@ var Queue = function(){
   someInstance.enqueue = function(value){
     size++;
     storage[size] = value;
-    console.log('add: ', storage[size] )
+    // console.log('add: ', storage[size] )
   };
 
   someInstance.dequeue = function(){
     var popped = storage[1];
     var last = storage[size];
-    console.log("before deq:", storage);
-    // delete storage[1];
+    // console.log("before deq:", storage);
     delete storage[size];
     if (size > 0) {
       size--;
@@ -25,7 +24,7 @@ var Queue = function(){
       storage[key] = storage[1 + key];
     }
     storage[size] = last;
-    console.log("after deq:", storage);
+    // console.log("after deq:", storage);
     return popped;
   };
 
