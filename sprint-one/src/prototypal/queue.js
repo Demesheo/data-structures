@@ -5,4 +5,7 @@ var Queue = function() {
 
 var queueMethods = {};
 
+queueMethods.enqueue
+queueMethods.dequeue
+queueMethods.size
 
