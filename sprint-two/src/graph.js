@@ -35,18 +35,24 @@ Graph.prototype.hasEdge = function(fromNode, toNode){
 
 Graph.prototype.addEdge = function(fromNode, toNode){
 	this.storageNodes[fromNode].edges.push(toNode);	
-	// console.log('thisStorage: ', this.storageNodes)
-	// console.log('storageNodes-edges: ', this.storageNodes[fromNode].edges);
+	this.storageNodes[toNode].edges.push(fromNode);
 };
 
 Graph.prototype.removeEdge = function(fromNode, toNode){
-	console.log('thisStorage before: ', this.storageNodes)	
-	this.storageNodes[fromNode].edges.pop();
-	console.log('thisStorage after: ', this.storageNodes)
+	var target = _.indexOf(this.storageNodes[fromNode].edges, toNode);
+	this.storageNodes[fromNode].edges.slice(target-1, target);
+
+	var adjTarget = _.indexOf(this.storageNodes[toNode].edges, fromNode);
+	this.storageNodes[toNode].edges.slice(adjTarget-1, adjTarget);	
+	
 };
 
 Graph.prototype.forEachNode = function(cb){
-	return _.each(this.storageNodes, cb);
+	
+	for(var key in this.storageNodes){
+		cb(key); 
+	}
+
 };
 
 /*
