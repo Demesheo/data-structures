@@ -23,7 +23,7 @@ var treeMethods = {};
 treeMethods.addChild = function(value){
 	var newChild = Tree(value);         
 	this.children.push(newChild);
-	console.log("array: ", this.children, "| value to add :", value);
+	// console.log("array: ", this.children, "| value to add :", value);
 	
 	
 };
@@ -43,7 +43,6 @@ treeMethods.contains = function(target){
 	return false;
 
 };
-
 
 
 
