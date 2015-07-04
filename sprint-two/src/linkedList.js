@@ -5,15 +5,16 @@ var LinkedList = function(){
 
   list.addToTail = function(value){
     var temped = Node(value);
-    // list.tail  = temped;
-    // list[value] = Node(value);
     
     if (list.head === null) {
       list.head = temped;
     } ;
+
     if (list.tail){
       list.tail.next = temped;
     };
+
+    list[value] = temped.value;
     list.tail = temped;
 
   };
@@ -26,9 +27,13 @@ var LinkedList = function(){
 // we want to create a reference to this node so that the next node we add will be the former's next value
 
   list.removeHead = function(){
-    console.log("head to be removed: ", list.head);
+    // console.log("head to be removed: ", list.head);
     var oldHead = list.head.value;
+    // console.log('list head value: ', list.head.value);
+
     list.head = list.head.next;
+    // console.log('list head next: ', list.head)
+    delete list[oldHead];
     return oldHead;
 
   };
