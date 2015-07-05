@@ -7,10 +7,6 @@ var HashTable = function(){
 
 HashTable.prototype.insert = function(k, v){
 	var i = getIndexBelowMaxForKey(k, this._limit);
-  // set the key and value pair as an object to be passed in with our set function
-  // put that object in our storage array by passing our object as a value in set	
-  // create var dataSet = {k : v}
-  // this._storage.set(i, dataSet)
   var storedAt = this._storage.get(i);
   if(storedAt){
   	storedAt[k] = v;
